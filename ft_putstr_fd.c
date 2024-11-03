@@ -1,18 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isascii.c                                       :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: makpolat <makpolat@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/15 12:51:32 by makpolat          #+#    #+#             */
-/*   Updated: 2024/10/19 19:42:00 by makpolat         ###   ########.fr       */
+/*   Created: 2024/10/30 14:52:06 by makpolat          #+#    #+#             */
+/*   Updated: 2024/11/02 20:42:38 by makpolat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isascii(int c)
+#include <unistd.h>
+
+void	ft_putstr_fd(char *s, int fd)
 {
-	if (c >= 0 && c <= 127)
-		return (1);
-	return (0);
+	int	i;
+
+	i = 0;
+	while (s[i])
+	{
+		write(fd, &s[i], 1);
+		i++;
+	}
 }
+
+// #include <fcntl.h>
+// int main()
+// {
+// 	int fd;
+
+// 	fd = open("deneme.txt", O_CREAT | O_RDWR, 0700);
+// 	ft_putstr_fd("Muhammed Emre AKPOLAT", fd);
+// }

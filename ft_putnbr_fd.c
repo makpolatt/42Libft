@@ -1,26 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: makpolat <makpolat@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/15 13:22:58 by makpolat          #+#    #+#             */
-/*   Updated: 2024/10/29 12:26:45 by makpolat         ###   ########.fr       */
+/*   Created: 2024/10/30 16:51:04 by makpolat          #+#    #+#             */
+/*   Updated: 2024/10/30 17:47:18 by makpolat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+void	ft_putnbr_fd(int n, int fd)
 {
-	while (*s)
+	if (n == -2147483648)
+		ft_putstr_fd("-2147483648", fd);
+	else if (n < 0)
 	{
-		if (*s == (char)c)
-			return ((char *)s);
-		s++;
+		ft_putchar_fd('-', fd);
+		ft_putnbr_fd(-n, fd);
 	}
-	if ((char)c == '\0')
-		return ((char *)s);
-	return (NULL);
+	else if (n > 9)
+	{
+		ft_putnbr_fd(n / 10, fd);
+		ft_putchar_fd(n % 10 + '0', fd);
+	}
+	else
+		ft_putchar_fd(n + '0', fd);
 }
+
+// #include <fcntl.h>
+// int main()
+// {
+// 	int fd;
+// 	fd = open("deneme.txt", O_CREAT | O_RDWR, 0777);
+// 	ft_putnbr_fd(0, fd);
+// }

@@ -1,18 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isascii.c                                       :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: makpolat <makpolat@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/15 12:51:32 by makpolat          #+#    #+#             */
-/*   Updated: 2024/10/19 19:42:00 by makpolat         ###   ########.fr       */
+/*   Created: 2024/10/30 18:14:03 by makpolat          #+#    #+#             */
+/*   Updated: 2024/10/31 20:47:51 by makpolat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isascii(int c)
+#include "libft.h"
+
+t_list	*ft_lstnew(void *content)
 {
-	if (c >= 0 && c <= 127)
-		return (1);
-	return (0);
+	t_list	*node;
+
+	node = (t_list *)malloc(sizeof(t_list));
+	if (!node)
+		return (NULL);
+	node->content = content;
+	node->next = NULL;
+	return (node);
 }
+
+// int main()
+// {
+// 	t_list *node = ft_lstnew(ft_strdup("Muhammed"));
+// 	printf("%s\n", node->content);
+// }

@@ -1,18 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isascii.c                                       :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: makpolat <makpolat@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/15 12:51:32 by makpolat          #+#    #+#             */
-/*   Updated: 2024/10/19 19:42:00 by makpolat         ###   ########.fr       */
+/*   Created: 2024/10/30 14:11:23 by makpolat          #+#    #+#             */
+/*   Updated: 2024/10/30 17:44:20 by makpolat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isascii(int c)
+#include <unistd.h>
+
+void	ft_putchar_fd(char c, int fd)
 {
-	if (c >= 0 && c <= 127)
-		return (1);
-	return (0);
+	write(fd, &c, 1);
 }
+
+// #include <fcntl.h>
+// int main()
+// {
+// 	int fd;
+
+// 	fd = open("emre.txt", O_CREAT | O_RDWR, 0700);
+// 	ft_putchar_fd('a', fd);
+// }

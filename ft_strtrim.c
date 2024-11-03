@@ -1,18 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isascii.c                                       :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: makpolat <makpolat@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/15 12:51:32 by makpolat          #+#    #+#             */
-/*   Updated: 2024/10/19 19:42:00 by makpolat         ###   ########.fr       */
+/*   Created: 2024/10/27 13:49:56 by makpolat          #+#    #+#             */
+/*   Updated: 2024/11/02 20:43:11 by makpolat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isascii(int c)
+#include "libft.h"
+
+char	*ft_strtrim(char const *s1, char const *set)
 {
-	if (c >= 0 && c <= 127)
-		return (1);
-	return (0);
+	int	i;
+	int	j;
+
+	i = 0;
+	j = ft_strlen(s1) - 1;
+	while (s1[i] && ft_strchr(set, s1[i]) != NULL)
+		i++;
+	while (j > i && ft_strchr(set, s1[j]) != NULL)
+		j--;
+	return (ft_substr(s1, i, j - i + 1));
 }
