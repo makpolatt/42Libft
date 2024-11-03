@@ -6,7 +6,7 @@
 /*   By: makpolat <makpolat@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 12:46:11 by makpolat          #+#    #+#             */
-/*   Updated: 2024/11/02 20:42:15 by makpolat         ###   ########.fr       */
+/*   Updated: 2024/11/03 16:29:29 by makpolat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,20 @@ static int	countwords(const char *s, char c)
 	return (count);
 }
 
+static char	**check(char **s)
+{
+	int	i;
+
+	i = 0;
+	while (s[i])
+	{
+		free(s[i]);
+		i++;
+	}
+	free(s);
+	return (0);
+}
+
 char	**ft_split(char const *s, char c)
 {
 	int		i;
@@ -43,7 +57,6 @@ char	**ft_split(char const *s, char c)
 	if (tab == NULL)
 		return (NULL);
 	i = 0;
-	j = 0;
 	while (*s)
 	{
 		if (*s == c)
@@ -53,7 +66,9 @@ char	**ft_split(char const *s, char c)
 			j = 0;
 			while (s[j] && s[j] != c)
 				j++;
-			tab[i++] = ft_substr(s, 0, j);
+			tab[i] = ft_substr(s, 0, j);
+			if (tab[i++] == NULL)
+				return (check(tab));
 			s += j;
 		}
 	}
