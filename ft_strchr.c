@@ -6,11 +6,9 @@
 /*   By: makpolat <makpolat@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 13:22:58 by makpolat          #+#    #+#             */
-/*   Updated: 2024/10/29 12:26:45 by makpolat         ###   ########.fr       */
+/*   Updated: 2024/11/05 12:21:21 by makpolat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 char	*ft_strchr(const char *s, int c)
 {
@@ -22,5 +20,5 @@ char	*ft_strchr(const char *s, int c)
 	}
 	if ((char)c == '\0')
 		return ((char *)s);
-	return (NULL);
+	return (0);
 }

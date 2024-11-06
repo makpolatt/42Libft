@@ -6,7 +6,7 @@
 /*   By: makpolat <makpolat@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 16:13:35 by makpolat          #+#    #+#             */
-/*   Updated: 2024/11/03 16:21:06 by makpolat         ###   ########.fr       */
+/*   Updated: 2024/11/05 12:17:54 by makpolat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ char	*ft_itoa(int n)
 
 	digits = "0123456789";
 	len = ft_count(n);
-	str = ft_calloc(len +1, sizeof(char));
+	str = ft_calloc(len + 1, sizeof(char));
 	if (str == 0)
 		return (0);
 	if (n == 0)

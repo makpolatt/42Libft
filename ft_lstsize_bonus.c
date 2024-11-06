@@ -1,32 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_lstsize_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: makpolat <makpolat@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/16 10:55:58 by makpolat          #+#    #+#             */
-/*   Updated: 2024/11/05 19:29:17 by makpolat         ###   ########.fr       */
+/*   Created: 2024/10/31 22:47:10 by makpolat          #+#    #+#             */
+/*   Updated: 2024/11/03 17:25:38 by makpolat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *dst, const void *src, size_t n)
+int	ft_lstsize(t_list *lst)
 {
-	unsigned char	*d;
-	unsigned char	*s;
-	size_t			i;
+	int	i;
 
-	if (!dst && !src)
-		return (dst);
-	s = (unsigned char *)src;
-	d = (unsigned char *)dst;
 	i = 0;
-	while (n > i)
+	while (lst)
 	{
-		d[i] = s[i];
 		i++;
+		lst = lst->next;
 	}
-	return (dst);
+	return (i);
 }

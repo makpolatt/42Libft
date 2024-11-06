@@ -6,7 +6,7 @@
 /*   By: makpolat <makpolat@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/19 09:07:52 by makpolat          #+#    #+#             */
-/*   Updated: 2024/11/03 15:39:45 by makpolat         ###   ########.fr       */
+/*   Updated: 2024/11/05 19:34:45 by makpolat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,7 @@
 char	*ft_strrchr(const char *s, int c)
 {
 	int		i;
-	int		k;
-	char	*ptr;
 
-	ptr = (char *)s;
-	k = 0;
 	i = ft_strlen(s);
 	while (i >= 0)
 	{
